@@ -28,6 +28,7 @@ CREATE TYPE profile_type AS ENUM ('conservative', 'moderate', 'aggressive');
 CREATE TABLE public.profile (
     id SERIAL PRIMARY KEY,
     "type" public."profile_type" NOT null,
+    description VARCHAR (255) NOT null,
     created_at timestamp DEFAULT current_timestamp,
     updated_at timestamp,
     deleted_at timestamp

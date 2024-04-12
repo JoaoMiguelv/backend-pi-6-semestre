@@ -6,6 +6,7 @@ import ClientsRouter from './api/Clients.js';
 import ProfilesRouter from './api/Profiles.js';
 import ListedSharesRouter from './api/ListedShares.js';
 import InvestmentPortfolioRouter from './api/InvestmentPortfolio.js';
+import ListedShareHistoryRouter from './api/ListedShareHistory.js';
 
 const routes = [
   { path: '/sign-in', router: new LoginRoute().router },
@@ -15,6 +16,7 @@ const routes = [
   { path: '/profiles', router: new ProfilesRouter().router },
   { path: '/listed-shares', router: new ListedSharesRouter().router },
   { path: '/investment-portfolio', router: new InvestmentPortfolioRouter().router },
+  { path: '/listed-share-history', router: new ListedShareHistoryRouter().router },
 ];
 
 export default function setupRoutes(app) {

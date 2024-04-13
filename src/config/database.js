@@ -11,7 +11,12 @@ const sequelize = new Sequelize({
   database: process.env.DB_DATABASE,
   sync: { force: false },
   timezone: '-03:00',
-  ssl: true,
+  dialectOptions: {
+    ssl: {
+      require: true, // Force SSL/TLS
+      rejectUnauthorized: false // Allow self-signed certificates, use `true` in production
+    }
+  }
 });
 
 export default sequelize;

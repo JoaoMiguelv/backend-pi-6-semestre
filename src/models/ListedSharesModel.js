@@ -33,6 +33,10 @@ export class ListedSharesModel {
             key: 'id',
           },
         },
+        active: {
+          type: DataTypes.BOOLEAN,
+          defaultValue: true,
+        },
       },
       {
         tableName: 'listed_shares', // Nome da tabela existente no banco de dados

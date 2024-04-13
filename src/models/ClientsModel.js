@@ -33,6 +33,14 @@ export class ClientsModel {
           type: DataTypes.BOOLEAN,
           defaultValue: true,
         },
+        id_profile: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          references: {
+            model: 'profiles',
+            key: 'id',
+          },
+        },
       },
       {
         tableName: 'clients', // Nome da tabela existente no banco de dados

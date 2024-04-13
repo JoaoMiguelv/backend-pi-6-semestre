@@ -1,3 +1,13 @@
+INSERT INTO public.profile
+(id, "type", created_at, updated_at, deleted_at, description)
+VALUES(1, 'conservative'::public."profile_type", '2024-04-12 12:45:56.613', '2024-04-12 12:45:56.613', NULL, 'Conservador');
+INSERT INTO public.profile
+(id, "type", created_at, updated_at, deleted_at, description)
+VALUES(2, 'moderate'::public."profile_type", '2024-04-12 12:46:02.197', '2024-04-12 12:46:02.197', NULL, 'Moderado');
+INSERT INTO public.profile
+(id, "type", created_at, updated_at, deleted_at, description)
+VALUES(3, 'aggressive'::public."profile_type", '2024-04-12 12:46:06.801', '2024-04-12 12:46:06.801', NULL, 'Agressivo');
+
 INSERT INTO public.listed_shares
 (id, ticker, "name", b3_sector_classification, id_profile, created_at, updated_at, deleted_at)
 VALUES(1, 'EMBR3', 'Embraer SA', 'Bens Industriais / Material de Transporte / Material Aeronáutico e de Defesa', 1, '2024-04-12 12:57:51.162', '2024-04-12 12:57:51.162', NULL);
@@ -16,14 +26,3 @@ VALUES(5, 'KLBN3', 'KLABIN SA', 'Materiais Básicos / Madeira e Papel / Papel e 
 INSERT INTO public.listed_shares
 (id, ticker, "name", b3_sector_classification, id_profile, created_at, updated_at, deleted_at)
 VALUES(6, 'PETR4', 'Petróleo Brasileiro SA Petrobras', 'Petróleo. Gás e Biocombustíveis / Petróleo. Gás e Biocombustíveis / Exploração. Refino e Distribuição', 2, '2024-04-12 16:08:05.591', '2024-04-12 16:08:05.591', NULL);
-
-
-INSERT INTO public.profile
-(id, "type", created_at, updated_at, deleted_at, description)
-VALUES(1, 'conservative'::public."profile_type", '2024-04-12 12:45:56.613', '2024-04-12 12:45:56.613', NULL, 'Conservador');
-INSERT INTO public.profile
-(id, "type", created_at, updated_at, deleted_at, description)
-VALUES(2, 'moderate'::public."profile_type", '2024-04-12 12:46:02.197', '2024-04-12 12:46:02.197', NULL, 'Moderado');
-INSERT INTO public.profile
-(id, "type", created_at, updated_at, deleted_at, description)
-VALUES(3, 'aggressive'::public."profile_type", '2024-04-12 12:46:06.801', '2024-04-12 12:46:06.801', NULL, 'Agressivo');

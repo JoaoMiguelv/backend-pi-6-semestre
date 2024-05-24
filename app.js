@@ -5,6 +5,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import setupRoutes from './src/routes/index.js';
 
+import { startListening } from './src/utils/Sub.js';
+
 dotenv.config();
 
 const app = express();
@@ -25,3 +27,6 @@ setupRoutes(app);
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+// Iniciar a escuta de mensagens (SUB)
+startListening().catch(console.error);

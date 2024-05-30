@@ -3,7 +3,7 @@ import ListedShareHistoryService from '../services/ListedShareHistoryService.js'
 
 async function startListening() {
   const projectId = 'serjava-demo';
-  const subscriptionId = 'duo-johns-sub';
+  const subscriptionId = 'pi-duojohns-pub-sub';
 
   console.log(`### Listening for messages on ${subscriptionId} ###`);
 
@@ -19,14 +19,14 @@ async function subscribeAsyncExample(projectId, subscriptionId) {
   const messageHandler = async (message) => {
     console.log(`Id: ${message.id}`);
     console.log(`Data: ${message.data.toString()}`);
-    //await processJson(message.data.toString()); DESCOMENTAR
+    await processJson(message.data.toString()); DESCOMENTAR
     message.ack();
   };
 
-  //subscription.on('message', messageHandler); DESCOMENTAR
-  const message = {
-    data: "{ \"id_listed_shares\": 1,\"date\": \"2024-05-24\",\"last_value\": 11.11,\"opening\": 11.11,\"high\": 11.11,\"low\": 11.11,  \"trading_volume\": 111111111,\"percentage_change\": 1.11}"
-  };
+  subscription.on('message', messageHandler); DESCOMENTAR
+  //const message = {
+  //data: "{ \"id_listed_shares\": 1,\"date\": \"2024-05-24\",\"last_value\": 11.11,\"opening\": 11.11,\"high\": 11.11,\"low\": 11.11,  \"trading_volume\": 111111111,\"percentage_change\": 1.11}"
+  //};
   // "{\"teste\": \"teste\"}"
 
   await processJson(message.data.toString());

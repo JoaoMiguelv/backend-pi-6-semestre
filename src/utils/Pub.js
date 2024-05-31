@@ -1,35 +1,39 @@
 import { PubSub } from '@google-cloud/pubsub';
 
+function getRandomFloat(min, max, decimals) {
+  const str = (Math.random() * (max - min) + min).toFixed(decimals);
+  return parseFloat(str);
+}
+
+function getRandomInt(arr) {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+}
+
 async function publishMessage() {
   const pubSubClient = new PubSub({ projectId: 'serjava-demo' });
-  const topicName = 'your-topic-name';
+  const topicName = 'pi-duojohns-pub';
 
   const data = JSON.stringify({
-    customer: {
-      id: 1,
-      name: 'John Doe'
-    },
-    uuid: '123e4567-e89b-12d3-a456-426614174000',
-    created_at: '2023-01-01T00:00:00Z',
-    type: 'order',
-    items: [
-      {
-        id: 1,
-        sku: { id: 'sku123', value: 100.0 },
-        category: { id: 'cat123', sub_category: { id: 'subcat123' } },
-        quantity: 2
-      }
-    ]
+    id_listed_shares: getRandomInt([1, 2, 3]),
+    date: '2024-05-31',
+    last_value: getRandomFloat(10.0, 20.0, 2),
+    opening: getRandomFloat(10.0, 20.0, 2),
+    high: getRandomFloat(10.0, 20.0, 2),
+    low: getRandomFloat(10.0, 20.0, 2),
+    trading_volume: Math.floor(Math.random() * (200000000 - 100000000) + 100000000),
+    percentage_change: getRandomFloat(0.0, 10.0, 2)
   });
 
   const dataBuffer = Buffer.from(data);
 
   try {
-    const messageId = await pubSubClient.topic(topicName).publish(dataBuffer);
+    console.log(`Publishing message: ${data}`);
+    const messageId = await pubSubClient.topic(topicName).publishMessage({ data: dataBuffer });
     console.log(`Message ${messageId} published.`);
   } catch (error) {
     console.error(`Received error while publishing: ${error.message}`);
   }
 }
 
-publishMessage();
+export { publishMessage };

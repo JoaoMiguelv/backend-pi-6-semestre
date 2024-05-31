@@ -17,12 +17,12 @@ async function publishMessage() {
   const data = JSON.stringify({
     id_listed_shares: getRandomInt([1, 2, 3]),
     date: '2024-05-31',
-    last_value: getRandomFloat(10.0, 20.0, 2),
-    opening: getRandomFloat(10.0, 20.0, 2),
-    high: getRandomFloat(10.0, 20.0, 2),
-    low: getRandomFloat(10.0, 20.0, 2),
+    last_value: getRandomFloat(10.0, 13.00, 2),
+    opening: getRandomFloat(12.0, 13.0, 2),
+    high: getRandomFloat(13.0, 15.0, 2),
+    low: getRandomFloat(9.0, 13.0, 2),
     trading_volume: Math.floor(Math.random() * (200000000 - 100000000) + 100000000),
-    percentage_change: getRandomFloat(0.0, 10.0, 2)
+    percentage_change: getRandomFloat(0.0, 1.5, 2)
   });
 
   const dataBuffer = Buffer.from(data);
